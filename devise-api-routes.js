@@ -4,7 +4,7 @@ const apiRouter = express.Router();
 var allDevises = [];
 
 allDevises.push({ code : 'EUR' , nom : 'Euro' , change : 1.0 });
-allDevises.push({ code : 'USD' , nom : 'Dollar' , change : 1.1 });
+allDevises.push({ code : 'USD' , nom : 'Dollar US' , change : 1.1 });
 allDevises.push({ code : 'JPY' , nom : 'Yen' , change : 123 });
 allDevises.push({ code : 'GBP' , nom : 'Livre' , change : 0.9 });
 allDevises.push({ code : 'CAD' , nom : 'Dollar Canadien' , change : 0.67 });
