@@ -6,7 +6,13 @@ var allDevises = [];
 allDevises.push({ code : 'EUR' , nom : 'Euro' , change : 1.0 });
 allDevises.push({ code : 'USD' , nom : 'Dollar' , change : 1.1 });
 allDevises.push({ code : 'JPY' , nom : 'Yen' , change : 123 });
-allDevises.push({ code : 'GBP' , nom : 'Livre' , change : 0.9 }); 
+allDevises.push({ code : 'GBP' , nom : 'Livre' , change : 0.9 });
+allDevises.push({ code : 'CAD' , nom : 'Dollar Canadien' , change : 0.67 });
+allDevises.push({ code : 'CNY' , nom : 'Yuan' , change : 7.96 });
+allDevises.push({ code : 'PLN' , nom : 'Złoty' , change : 4.55 });
+allDevises.push({ code : 'RUB' , nom : 'Rouble russe' , change : 89.73 });
+allDevises.push({ code : 'BRL' , nom : 'Réal Brésilien' , change : 6.43 });
+allDevises.push({ code : 'INR' , nom : 'Roupie Indienne' , change : 85.87 });
 
 function findDeviseInArrayByCode(devises,code){
 	var devise=null;
