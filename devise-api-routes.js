@@ -16,9 +16,9 @@ allDevises.push({ code : 'INR' , nom : 'Roupie Indienne' , change : 85.87 });
 
 function convertPrice(codeDevise, priceToConvert) {
 	let conversionRate;
-	for(const i in allDevises) {
-		if(allDevises[i].code === codeDevise) {
-			conversionRate = allDevises[i].change;
+	for(const devise of allDevises) {
+		if(devise.code === codeDevise) {
+			conversionRate = devise.change;
 		}
 	}
 	return priceToConvert * conversionRate;
