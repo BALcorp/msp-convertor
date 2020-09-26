@@ -26,11 +26,21 @@ function convertPrice(codeDevise, priceToConvert) {
 
 //exemple URL: http://localhost:8282/devise-api/public/devise/USD/10
 apiRouter.route('/devise-api/public/devise/:code/:price')
-.get( function(req , res  , next ) {
-	const codeDevise = req.params.code;
-	const priceToConvert = req.params.price;
-	const convertedPrice = convertPrice(codeDevise, priceToConvert);
-	res.send(convertedPrice.toString());
-});
+	.get( function(req , res  , next ) {
+		const codeDevise = req.params.code;
+		const priceToConvert = req.params.price;
+		const convertedPrice = convertPrice(codeDevise, priceToConvert);
+		res.send(convertedPrice.toString());
+	});
+
+//exemple URL: http://localhost:8282/devise-api/public/devise/codes
+apiRouter.route('/devise-api/public/devise/codes')
+	.get( function(req , res  , next ) {
+		const allCodes = [];
+		for(const devise of allDevises) {
+			allCodes.push(devise.code);
+		}
+		res.send(allCodes);
+	});
 
 exports.apiRouter = apiRouter;
