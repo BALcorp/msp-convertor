@@ -1,6 +1,5 @@
 var express = require('express');
 var deviseApiRoutes = require('./devise-api-routes');
-var produitApiRoutes = require('./produit-api-routes');
 var bodyParser = require('body-parser');
 var app = express();
 
@@ -30,7 +29,6 @@ res.redirect('html/index.html');
 });
 
 app.use(deviseApiRoutes.apiRouter); //delegate REST API routes to apiRouter(s)
-app.use(produitApiRoutes.apiRouter); 
 
 app.listen(8056 , function () {
 console.log("http://localhost:8056");
