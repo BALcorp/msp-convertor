@@ -14,6 +14,7 @@ allDevises.push({ code : 'RUB' , nom : 'Rouble russe' , change : 89.73 });
 allDevises.push({ code : 'BRL' , nom : 'Réal Brésilien' , change : 6.43 });
 allDevises.push({ code : 'INR' , nom : 'Roupie Indienne' , change : 85.87 });
 
+
 function convertPrice(codeDevise, priceToConvert) {
 	let conversionRate;
 	for(const devise of allDevises) {
@@ -42,5 +43,49 @@ apiRouter.route('/devise-api/public/devise/codes')
 		}
 		res.send(allCodes);
 	});
+
+function findDeviseInArrayByCode(devises,code){
+	var devise=null;
+	for(i in devises){
+		if(devises[i].code == code){
+			  devise=devises[i]; break;
+		}
+	}
+	return devise;
+}
+
+function removeDeviseInArrayByCode(devises,code){
+	var delIndex;
+	for(i in devises){
+		if(devises[i].code == code){
+			  delIndex=i; break;
+		}
+	}
+	if(delIndex){
+		devises.splice(i,1);
+	}
+}
+
+//exemple URL: http://localhost:8282/devise-api/public/devise/EUR
+apiRouter.route('/devise-api/public/devise/:code')
+.get( function(req , res  , next ) {
+	var codeDevise = req.params.code;
+	var devise = findDeviseInArrayByCode(allDevises,codeDevise);
+	res.send(devise);
+});
+
+//exemple URL: http://localhost:8282/devise-api/public/devise (returning all devises)
+//             http://localhost:8282/devise-api/public/devise?changeMini=1.05
+apiRouter.route('/devise-api/public/devise')
+.get( function(req , res  , next ) {
+	var changeMini = req.query.changeMini;
+	if(changeMini){
+		res.send(findDevisesWithChangeMini(allDevises,changeMini));
+	}else{
+	   res.send(allDevises);
+	}
+});
+
+
 
 exports.apiRouter = apiRouter;
