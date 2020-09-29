@@ -22,7 +22,7 @@ function convertPrice(codeDevise, priceToConvert) {
 			conversionRate = devise.change;
 		}
 	}
-	return priceToConvert * conversionRate;
+	return Math.round(priceToConvert * conversionRate);
 }
 
 //exemple URL: http://localhost:8282/devise-api/public/devise/USD/10
