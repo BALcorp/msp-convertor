@@ -10,8 +10,5 @@ RUN npm install
 # Copying source files
 COPY . .
 
-# Building app
-RUN npm run build
-
 # Running the app
 CMD [ "node", "server.js" ]
